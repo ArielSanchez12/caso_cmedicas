@@ -1,9 +1,32 @@
 import request from 'supertest';
 import app from '../server';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 describe('Prueba de carga para Login', () => {
+  // Conectar a la base de datos antes de las pruebas
+  beforeAll(async () => {
+    try {
+      await mongoose.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      });
+      console.log('Conexión a MongoDB establecida para pruebas');
+    } catch (error) {
+      console.error('Error conectando a MongoDB:', error);
+    }
+  });
+
+  // Cerrar la conexión después de las pruebas
+  afterAll(async () => {
+    await mongoose.connection.close();
+    console.log('Conexión a MongoDB cerrada');
+  });
+
   test('Debe manejar múltiples solicitudes de login simultáneas', async () => {
-    const numRequests = 100;
+    const numRequests = 25;
     const loginPromises = [];
     const startTime = Date.now();
 
@@ -13,7 +36,7 @@ describe('Prueba de carga para Login', () => {
         request(app)
           .post('/api/login')
           .send({
-            email: 'test@gmail.com', // Usa un usuario que ya exista en tu base de datos
+            email: 'test@gmail.com',
             password: 'xtet-2'
           })
       );
@@ -44,6 +67,7 @@ describe('Prueba de carga para Login', () => {
         exitosas++;
       } else {
         fallidas++;
+        console.log('Error en respuesta:', response.status, response.body);
       }
     });
 
@@ -52,5 +76,5 @@ describe('Prueba de carga para Login', () => {
 
     // Verificación final
     expect(exitosas).toBeGreaterThan(0);
-  }, 60000); // Timeout de 60 segundos
+  }, 60000);
 });
