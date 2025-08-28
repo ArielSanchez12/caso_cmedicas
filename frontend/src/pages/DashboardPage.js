@@ -16,9 +16,9 @@ function DashboardPage() {
       <h2>Bienvenido - {usuario?.nombre}</h2>
       <h3>Seleccione un módulo:</h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-        <button onClick={() => navigate('/pacientes')}>Pacientes</button>
-        <button onClick={() => navigate('/especialidades')}>Especialidades</button>
-        <button onClick={() => navigate('/citas')}>Citas</button>
+        <button onClick={() => navigate('/pacientes')}>Tecnicos</button>
+        <button onClick={() => navigate('/especialidades')}>Clientes</button>
+        <button onClick={() => navigate('/citas')}>Tickets</button>
         <button onClick={handleLogout} style={{ marginTop: 20, background: '#e74c3c', color: 'white' }}>Salir</button>
       </div>
     </div>
