@@ -14,6 +14,11 @@ export const getTecnicos = async (req, res) => {
 
 export const createTecnico = async (req, res) => {
   try {
+    const { email } = req.body;
+    const existe = await Tecnico.findOne({ email });
+    if (existe) {
+      return res.status(400).json({ message: 'El correo ya está registrado.' });
+    }
     const tecnico = new Tecnico(req.body);
     await tecnico.save();
     res.status(201).json(tecnico);

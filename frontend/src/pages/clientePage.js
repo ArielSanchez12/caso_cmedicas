@@ -19,6 +19,12 @@ function ClientesPage() {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    const cedulaValida = /^\d{10}$/.test(form.cedula);
+    const telefonoValido = /^\d{10}$/.test(form.telefono);
+    if (!cedulaValida || !telefonoValido) {
+      alert('La cédula y el teléfono deben tener exactamente 10 números.');
+      return;
+    }
     const method = editId ? 'PUT' : 'POST';
     const url = editId ? `https://cmedicasbackend.vercel.app/api/clientes/${editId}` : `https://cmedicasbackend.vercel.app/api/clientes`;
     await fetch(url, {
@@ -71,7 +77,7 @@ function ClientesPage() {
         <tbody>
           {Array.isArray(clientes) && clientes.map(c => (
             <tr key={c._id}>
-              <td>{c.nombre}</td><td>{c.apellido}</td><td>{c.cedula}</td><td>{c.ciudad}</td><td>{c.fecha_nacimiento}</td><td>{c.dependencia}</td><td>{c.direccion}</td><td>{c.telefono}</td><td>{c.email}</td>
+              <td>{c.nombre}</td><td>{c.apellido}</td><td>{c.cedula}</td><td>{c.ciudad}</td><td>{c.fecha_nacimiento?.slice(0, 10)}</td><td>{c.dependencia}</td><td>{c.direccion}</td><td>{c.telefono}</td><td>{c.email}</td>
               <td>
                 <button onClick={() => handleEdit(c)}>Editar</button>
                 <button onClick={() => handleDelete(c._id)}>Eliminar</button>

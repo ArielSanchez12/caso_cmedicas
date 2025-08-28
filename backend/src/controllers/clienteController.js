@@ -14,6 +14,11 @@ export const getClientes = async (req, res) => {
 
 export const createCliente = async (req, res) => {
   try {
+    const { email } = req.body;
+    const existe = await Cliente.findOne({ email });
+    if (existe) {
+      return res.status(400).json({ message: 'El correo ya está registrado.' });
+    }
     const cliente = new Cliente(req.body);
     await cliente.save();
     res.status(201).json(cliente);

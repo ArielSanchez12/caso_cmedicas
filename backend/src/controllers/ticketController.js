@@ -34,6 +34,11 @@ export const getTickets = async (req, res) => {
 
 export const createTicket = async (req, res) => {
   try {
+    const { codigo } = req.body;
+    const existe = await Ticket.findOne({ codigo });
+    if (existe) {
+      return res.status(400).json({ message: 'El código de ticket ya existe.' });
+    }
     const ticket = new Ticket(req.body);
     await ticket.save();
     res.status(201).json(ticket);
