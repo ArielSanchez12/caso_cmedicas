@@ -36,12 +36,11 @@ function LoginPage() {
 
   return (
     <div style={{ maxWidth: 400, margin: 'auto', padding: 20 }}>
-      <h2 className="text-3xl font-semibold mb-2 text-center uppercase text-black">Login - Tickets</h2>
+      <h2>Login - Tickets</h2>
       <form onSubmit={handleSubmit}>
         <input type="email" placeholder="Correo" value={email} onChange={e => setEmail(e.target.value)} required style={{ width: '100%', marginBottom: 10, textAling: center, }} />
         <input type="password" placeholder="Contraseña" value={password} onChange={e => setPassword(e.target.value)} required style={{ width: '100%', marginBottom: 10, textAling: center }} />
-        <button type="submit" className="py-2 w-full block text-center bg-black text-white border rounded-xl hover:scale-105 duration-300 hover:bg-blue-600 hover:text-white"
-          style={{ width: '100%' }}>Iniciar Sesion</button>
+        <button type="submit" style={{ width: '100%' }}>Iniciar Sesion</button>
       </form>
       {error && <div style={{ color: 'red', marginTop: 10 }}>{error}</div>}
     </div>
