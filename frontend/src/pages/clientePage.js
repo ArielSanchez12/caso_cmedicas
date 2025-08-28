@@ -54,7 +54,7 @@ function ClientesPage() {
         <input name="apellido" placeholder="Apellido" value={form.apellido} onChange={handleChange} required />
         <input name="cedula" placeholder="Cédula" value={form.cedula} onChange={handleChange} required />
         <input name="ciudad" placeholder="Ciudad" value={form.ciudad} onChange={handleChange} required />
-        <input name="fecha_nacimiento" placeholder="Fecha de Nacimiento" value={form.fecha_nacimiento} onChange={handleChange} required />
+        <input name="fecha_nacimiento" type="date" placeholder="Fecha de Nacimiento" value={form.fecha_nacimiento} onChange={handleChange} required />
         <input name="dependencia" placeholder="Dependencia" value={form.dependencia} onChange={handleChange} required />
         <input name="direccion" placeholder="Dirección" value={form.direccion} onChange={handleChange} required />
         <input name="telefono" placeholder="Teléfono" value={form.telefono} onChange={handleChange} required />
@@ -71,7 +71,7 @@ function ClientesPage() {
         <tbody>
           {Array.isArray(clientes) && clientes.map(c => (
             <tr key={c._id}>
-              <td>{c.codigo}</td><td>{c.nombre}</td><td>{c.descripcion}</td>
+              <td>{c.nombre}</td><td>{c.apellido}</td><td>{c.cedula}</td><td>{c.ciudad}</td><td>{c.fecha_nacimiento}</td><td>{c.dependencia}</td><td>{c.direccion}</td><td>{c.telefono}</td><td>{c.email}</td>
               <td>
                 <button onClick={() => handleEdit(c)}>Editar</button>
                 <button onClick={() => handleDelete(c._id)}>Eliminar</button>
