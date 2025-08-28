@@ -39,10 +39,10 @@ function LoginPage() {
       <h2>Login - Tickets</h2>
       <form onSubmit={handleSubmit}>
         <p>Correo:</p>
-        <input type="email" placeholder="Correo" value={email} onChange={e => setEmail(e.target.value)} required style={{ width: '100%', marginBottom: 10 }} />
+        <input type="email" placeholder="Correo" value={email} onChange={e => setEmail(e.target.value)} required style={{ width: '100%', marginBottom: 10, borderRadius: 10 }} />
         <p>Contraseña:</p>
-        <input type="password" placeholder="Contraseña" value={password} onChange={e => setPassword(e.target.value)} required style={{ width: '100%', marginBottom: 10 }} />
-        <button type="submit" style={{ width: '100%' }}>Iniciar Sesion</button>
+        <input type="password" placeholder="Contraseña" value={password} onChange={e => setPassword(e.target.value)} required style={{ width: '100%', marginBottom: 10, borderRadius: 10}} />
+        <button type="submit" style={{ width: '100%', borderRadius: 10}}>Iniciar Sesion</button>
       </form>
       {error && <div style={{ color: 'red', marginTop: 10 }}>{error}</div>}
     </div>
