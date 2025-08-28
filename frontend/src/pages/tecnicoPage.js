@@ -22,7 +22,7 @@ function TecnicosPage() {
     const cedulaValida = /^\d{10}$/.test(form.cedula);
     const telefonoValido = /^\d{10}$/.test(form.telefono);
     if (!cedulaValida || !telefonoValido) {
-      alert('La cédula y el teléfono deben tener exactamente 10 números.');
+      alert('Los campos cédula y el teléfono deben ser números y tener exactamente 10 caracteres');
       return;
     }
     const method = editId ? 'PUT' : 'POST';

@@ -36,8 +36,8 @@ describe('Prueba de carga para Login', () => {
         request(app)
           .post('/api/login')
           .send({
-            email: 'test@gmail.com',
-            password: 'xtet-2'
+            email: 'ariel@mail.com',
+            password: 'arielx123'
           })
       );
     }
