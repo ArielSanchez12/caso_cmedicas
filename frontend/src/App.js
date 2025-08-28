@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
-import PacientesPage from './pages/PacientesPage';
-import EspecialidadesPage from './pages/EspecialidadesPage';
-import CitasPage from './pages/CitasPage';
+import PacientesPage from './pages/tecnicoPage';
+import EspecialidadesPage from './pages/clientePage';
+import CitasPage from './pages/ticketsPage';
 
 function PrivateRoute({ children }) {
   const token = localStorage.getItem('token');
@@ -20,17 +20,17 @@ function App() {
             <DashboardPage />
           </PrivateRoute>
         } />
-        <Route path="/pacientes" element={
+        <Route path="/tecnicos" element={
           <PrivateRoute>
             <PacientesPage />
           </PrivateRoute>
         } />
-        <Route path="/especialidades" element={
+        <Route path="/clientes" element={
           <PrivateRoute>
             <EspecialidadesPage />
           </PrivateRoute>
         } />
-        <Route path="/citas" element={
+        <Route path="/tickets" element={
           <PrivateRoute>
             <CitasPage />
           </PrivateRoute>
