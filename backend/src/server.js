@@ -3,9 +3,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import loginRoutes from './routes/login.js';
-import pacienteRoutes from './routes/pacientes.js';
-import especialidadRoutes from './routes/especialidades.js';
-import citaRoutes from './routes/citas.js';
+import tecnicoRoutes from './routes/tecnicos.js';
+import clienteRoutes from './routes/clientes.js';
+import ticketRoutes from './routes/tickets.js';
 dotenv.config();
 
 const app = express();
@@ -28,16 +28,15 @@ app.use((req, res, next) => {
   next();
 });
 
-// Health check endpoint
 app.get('/', (req, res) => {
-  res.send('API de citas médicas funcionando');
+  res.send('API de tickets funcionando');
 });
 
 // Routes
 app.use('/api/login', loginRoutes);
-app.use('/api/pacientes', pacienteRoutes);
-app.use('/api/especialidades', especialidadRoutes);
-app.use('/api/citas', citaRoutes);
+app.use('/api/tecnicos', tecnicoRoutes);
+app.use('/api/clientes', clienteRoutes);
+app.use('/api/tickets', ticketRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

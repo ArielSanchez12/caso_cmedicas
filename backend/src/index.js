@@ -4,6 +4,6 @@ import app from './server.js'
 
 connection()
 
-app.listen(app.get('port'), () => { //Esta escuchando a nuestra variable global 'port'
+app.listen(app.get('port'), () => {
     console.log("Server ok")
 })

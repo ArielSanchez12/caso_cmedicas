@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 
 mongoose.set('strictQuery', false)
 
-// Agregar listener para eventos de conexión
+
 mongoose.connection.on('connected', () => {
   console.log('Mongoose conectado a MongoDB');
 });
@@ -25,19 +25,16 @@ const connection = async () => {
     await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      // Agregamos timeout y heartbeat para debug
       serverSelectionTimeoutMS: 5000,
       heartbeatFrequencyMS: 2000,
     });
     
     console.log("MongoDB conectado exitosamente");
-    // Imprimir información de la conexión
     const { host, port, name } = mongoose.connection;
     console.log(`Host: ${host}, Port: ${port}, DB: ${name}`);
   } catch (error) {
     console.error("Error detallado de conexión a MongoDB:");
     console.error(error);
-    // Verificar si el error es de autenticación
     if (error.name === 'MongoServerError') {
       console.error('Posible error de autenticación o permisos');
     }
