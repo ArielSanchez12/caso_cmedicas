@@ -43,7 +43,7 @@ function TecnicosPage() {
 
   return (
     <div style={{ maxWidth: 800, margin: 'auto', padding: 20 }}>
-      <h2>Bienvenido - {usuario?.nombre}</h2>
+      <h2 style={{textAlign: "center"}}>Bienvenido - {usuario?.nombre}</h2>
       <div style={{ display: 'flex', gap: 10, marginBottom: 10 }}>
         <button onClick={() => window.location.href = '/dashboard'}>Regresar al Dashboard</button>
         <button onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('usuario'); window.location.href = '/'; }} style={{ background: '#e74c3c', color: 'white' }}>Salir</button>

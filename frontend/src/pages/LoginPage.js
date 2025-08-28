@@ -35,14 +35,15 @@ function LoginPage() {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: 'auto', padding: 20, borderRadius: 10, background: 'linear-gradient(135deg, #f9fafc 60%, #ffe5b4 100%)', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', position: 'relative' }}>
-      <h2>Login - Tickets</h2>
+    <div style={{ maxWidth: 400, margin: 'auto', padding: 20, borderRadius: 10, background: 'linear-gradient(135deg, #f9fafc 60%, #ff6aebff 100%)', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', position: 'relative' }}>
+      <h2 style={{textAlign: "center"}}>Login - Tickets</h2>
       <form onSubmit={handleSubmit}>
         <p>Correo:</p>
         <input type="email" placeholder="Correo" value={email} onChange={e => setEmail(e.target.value)} required style={{ width: '100%', marginBottom: 10, borderRadius: 10 }} />
         <p>Contraseña:</p>
         <input type="password" placeholder="Contraseña" value={password} onChange={e => setPassword(e.target.value)} required style={{ width: '100%', marginBottom: 10, borderRadius: 10}} />
-        <button type="submit" style={{ width: '100%', borderRadius: 10}}>Iniciar Sesion</button>
+        <p> </p>
+        <button type="submit" style={{ width: '100%', marginBottom: 10, borderRadius: 10}}>Iniciar Sesion</button>
       </form>
       {error && <div style={{ color: 'red', marginTop: 10 }}>{error}</div>}
     </div>
