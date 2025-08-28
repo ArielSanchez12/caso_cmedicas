@@ -19,6 +19,12 @@ function TecnicosPage() {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    const cedulaValida = /^\d{10}$/.test(form.cedula);
+    const telefonoValido = /^\d{10}$/.test(form.telefono);
+    if (!cedulaValida || !telefonoValido) {
+      alert('La cédula y el teléfono deben tener exactamente 10 números.');
+      return;
+    }
     const method = editId ? 'PUT' : 'POST';
     const url = editId ? `https://cmedicasbackend.vercel.app/api/tecnicos/${editId}` : `https://cmedicasbackend.vercel.app/api/tecnicos`;
     await fetch(url, {
@@ -43,7 +49,7 @@ function TecnicosPage() {
 
   return (
     <div style={{ maxWidth: 800, margin: 'auto', padding: 20 }}>
-      <h2 style={{textAlign: "center"}}>Bienvenido - {usuario?.nombre}</h2>
+      <h2 style={{ textAlign: "center" }}>Bienvenido - {usuario?.nombre}</h2>
       <div style={{ display: 'flex', gap: 10, marginBottom: 10 }}>
         <button onClick={() => window.location.href = '/dashboard'}>Regresar al Dashboard</button>
         <button onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('usuario'); window.location.href = '/'; }} style={{ background: '#e74c3c', color: 'white' }}>Salir</button>
@@ -70,7 +76,7 @@ function TecnicosPage() {
         <tbody>
           {Array.isArray(tecnicos) && tecnicos.map(p => (
             <tr key={p._id}>
-              <td>{p.nombre}</td><td>{p.apellido}</td><td>{p.fecha_nacimiento?.slice(0,10)}</td><td>{p.genero}</td><td>{p.cedula}</td><td>{p.direccion}</td><td>{p.telefono}</td><td>{p.email}</td>
+              <td>{p.nombre}</td><td>{p.apellido}</td><td>{p.fecha_nacimiento?.slice(0, 10)}</td><td>{p.genero}</td><td>{p.cedula}</td><td>{p.direccion}</td><td>{p.telefono}</td><td>{p.email}</td>
               <td>
                 <button onClick={() => handleEdit(p)}>Editar</button>
                 <button onClick={() => handleDelete(p._id)}>Eliminar</button>
