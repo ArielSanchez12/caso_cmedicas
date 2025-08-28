@@ -22,17 +22,17 @@ function App() {
         } />
         <Route path="/tecnicos" element={
           <PrivateRoute>
-            <PacientesPage />
+            <TecnicosPage />
           </PrivateRoute>
         } />
         <Route path="/clientes" element={
           <PrivateRoute>
-            <EspecialidadesPage />
+            <ClientesPage />
           </PrivateRoute>
         } />
         <Route path="/tickets" element={
           <PrivateRoute>
-            <CitasPage />
+            <TicketsPage />
           </PrivateRoute>
         } />
       </Routes>
