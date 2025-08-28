@@ -114,7 +114,7 @@ function TicketsPage() {
 
   return (
     <div style={{ maxWidth: 800, margin: 'auto', padding: 20 }}>
-      <h2>Bienvenido - {usuario?.nombre}</h2>
+      <h2 style={{textAlign: "center"}}>Bienvenido - {usuario?.nombre}</h2>
       <div style={{ display: 'flex', gap: 10, marginBottom: 10 }}>
         <button onClick={() => window.location.href = '/dashboard'}>Regresar al Dashboard</button>
         <button onClick={() => { 
@@ -124,7 +124,7 @@ function TicketsPage() {
         }} style={{ background: '#e74c3c', color: 'white' }}>Salir</button>
       </div>
 
-      <h3>Tickets</h3>
+      <h3 style={{textAlign: "center"}}>Tickets</h3>
       <form onSubmit={handleSubmit} style={{ marginBottom: 20 }}>
         <input name="codigo" placeholder="Código" value={form.codigo} onChange={handleChange} required />
         <input name="descripcion" placeholder="Descripción" value={form.descripcion} onChange={handleChange} />

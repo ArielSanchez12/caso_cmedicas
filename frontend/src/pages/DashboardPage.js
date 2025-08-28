@@ -13,7 +13,7 @@ function DashboardPage() {
 
   return (
     <div style={{ maxWidth: 400, margin: 'auto', padding: 20, borderRadius: 10, background: 'linear-gradient(135deg, #f9fafc 60%, #ff6aebff 100%)', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', position: 'relative'}}>
-      <h2>Bienvenido - {usuario?.nombre}</h2>
+      <h2 style={{textAlign: "center"}}>Bienvenido - {usuario?.nombre}</h2>
       <h3>Seleccione un módulo:</h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         <button onClick={() => navigate('/tecnicos')}>Tecnicos</button>
