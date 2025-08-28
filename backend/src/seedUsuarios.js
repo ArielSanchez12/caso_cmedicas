@@ -6,7 +6,7 @@ import Usuario from './models/Usuario.js';
 dotenv.config();
 
 const usuarios = [
-  { nombre: 'test', apellido: 'test2', email: 'test@gmail.com', password: 'xtet-2' }
+  { nombre: 'ariel', apellido: 'ariel2', email: 'ariel@mail.com', password: 'arielx123' }
 ];
 
 async function seed() {
